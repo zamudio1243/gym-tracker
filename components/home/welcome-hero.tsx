@@ -2,6 +2,7 @@
 
 import { Dumbbell, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 export function WelcomeHero() {
   return (
@@ -64,12 +65,12 @@ export function WelcomeHero() {
             <div className="mt-4 flex justify-center text-sm text-muted-foreground">
               <p>
                 Ya estas registrado{" "}
-                <a
+                <Link
                   href="/auth/login"
                   className="ml-1 font-semibold text-primary hover:text-primary/80 transition-colors"
                 >
                   Log in
-                </a>
+                </Link>
               </p>
             </div>
           </div>
