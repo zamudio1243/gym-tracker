@@ -71,7 +71,8 @@ export function LoginForm() {
               />
               <Link
                 href="/auth/forgot-password"
-                className="ml-auto mt-2 text-sm text-primary hover:text-primary/80 transition-colors"
+                //set to the right of the field
+                className="right-0 ml-auto mt-2 text-sm hover:text-primary/80 transition-colors"
               >
                 Olvidé mi contraseña
               </Link>
@@ -80,7 +81,7 @@ export function LoginForm() {
           );
         }}
       </form.Field>
-      <Button className="bg-primary text-primary mt-3" type="submit">
+      <Button className="bg-primary text-primary-foreground mt-3" type="submit">
         Log in
       </Button>
     </form>
