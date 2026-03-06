@@ -1,21 +1,23 @@
 "use client";
 
 import { useForm } from "@tanstack/react-form";
-import { loginSchema, LoginSchema } from "../schemes/login.scheme";
 import { Field, FieldError, FieldLabel } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { signUpSchema, SignUpSchema } from "../schemes/sign-up.scheme";
+import { Arrow } from "radix-ui/internal";
 import { ArrowRight } from "lucide-react";
 
-export function LoginForm() {
+export function SignUpForm() {
   const form = useForm({
     defaultValues: {
-      password: "",
-      email: "",
-    } satisfies LoginSchema,
+      name: "eg. Hero Smith",
+      email: "name@example.com",
+      password: "Create a strong password",
+    } satisfies SignUpSchema,
     validators: {
-      onSubmit: loginSchema,
+      onSubmit: signUpSchema,
     },
     onSubmit: async (values) => {
       // TODO: use better-auth
@@ -30,6 +32,28 @@ export function LoginForm() {
         form.handleSubmit();
       }}
     >
+      <form.Field name="name">
+        {(field) => {
+          const isInvalid =
+            field.state.meta.isTouched && !field.state.meta.isValid;
+          return (
+            <Field data-invalid={isInvalid}>
+              <FieldLabel htmlFor={field.name}>Name</FieldLabel>
+              <Input
+                id={field.name}
+                name={field.name}
+                value={field.state.value}
+                onBlur={field.handleBlur}
+                onChange={(e) => field.handleChange(e.target.value)}
+                aria-invalid={isInvalid}
+                placeholder=""
+                autoComplete="off"
+              />
+              {isInvalid && <FieldError errors={field.state.meta.errors} />}
+            </Field>
+          );
+        }}
+      </form.Field>
       <form.Field name="email">
         {(field) => {
           const isInvalid =
@@ -71,15 +95,12 @@ export function LoginForm() {
                 autoComplete="off"
               />
               {isInvalid && <FieldError errors={field.state.meta.errors} />}
-              <Button variant="link" size="xs" asChild className="right-0">
-                <Link href="/auth/forgot-password">Olvidé mi contraseña</Link>
-              </Button>
             </Field>
           );
         }}
       </form.Field>
       <Button className="bg-primary text-primary-foreground mt-3" type="submit">
-        Log in
+        Create Hero Account
         <ArrowRight className="ml-2" />
       </Button>
     </form>

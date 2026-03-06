@@ -49,28 +49,24 @@ export function WelcomeHero() {
             <Button
               size="lg"
               className="group w-full overflow-hidden shadow-[0_0_20px_-5px] shadow-primary/50"
+              asChild
             >
-              <span className="flex items-center gap-2 text-lg font-bold tracking-wide">
+              <Link
+                href="/sign-up"
+                className="flex items-center gap-2 text-lg font-bold tracking-wide"
+              >
                 Empieza ahora
                 <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
-              </span>
-            </Button>
-
-            {/* Secondary Action */}
-            <Button variant="secondary" size="lg" className="w-full">
-              Soy un Coach
+              </Link>
             </Button>
 
             {/* Login Link */}
             <div className="mt-4 flex justify-center text-sm text-muted-foreground">
               <p>
                 Ya estas registrado{" "}
-                <Link
-                  href="/auth/login"
-                  className="ml-1 font-semibold text-primary hover:text-primary/80 transition-colors"
-                >
-                  Log in
-                </Link>
+                <Button variant="link" asChild className="text-primary">
+                  <Link href="/login">Log in</Link>
+                </Button>
               </p>
             </div>
           </div>
