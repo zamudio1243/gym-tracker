@@ -7,6 +7,7 @@
     "build": "bun --bunnext build",
     "start": "bun --bun next start",
     "lint": "bun --bun eslint",
+    "lint:fix": "bun --bun eslint --fix",
     "prisma:generate": "bun --bun prisma generate",
     "prisma:migrate": "bun --bun prisma migrate dev",
     "prisma:studio": "bun --bun prisma studio"
