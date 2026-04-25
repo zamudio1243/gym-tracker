@@ -3,24 +3,23 @@
 import { useForm } from "@tanstack/react-form";
 import { Field, FieldError, FieldLabel } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
-import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { signUpSchema, SignUpSchema } from "../schemes/sign-up.scheme";
-import { Arrow } from "radix-ui/internal";
 import { ArrowRight } from "lucide-react";
+import { signUpAction } from "../actions/auth.actions";
 
 export function SignUpForm() {
   const form = useForm({
     defaultValues: {
-      name: "eg. Hero Smith",
-      email: "name@example.com",
-      password: "Create a strong password",
+      name: "",
+      email: "",
+      password: "",
     } satisfies SignUpSchema,
     validators: {
       onSubmit: signUpSchema,
     },
-    onSubmit: async (values) => {
-      // TODO: use better-auth
+    onSubmit: async ({ value }) => {
+      await signUpAction(value);
     },
   });
 
@@ -31,6 +30,7 @@ export function SignUpForm() {
         e.stopPropagation();
         form.handleSubmit();
       }}
+ 
     >
       <form.Field name="name">
         {(field) => {
