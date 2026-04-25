@@ -1,6 +1,6 @@
 "use server";
 
-import { auth } from "@/lib/auth";
+import { auth } from "@/shared/server/auth";
 import { redirect } from "next/navigation";
 import { signUpSchema } from "../schemes/sign-up.scheme";
 import { loginSchema } from "../schemes/login.scheme";

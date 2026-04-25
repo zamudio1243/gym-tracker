@@ -1,8 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Button } from "../ui/button";
-import { LoginForm } from "./forms/login.form";
+import { Button } from "@/shared/ui/button";
 import { ArrowLeft, Bolt } from "lucide-react";
 import { SignUpForm } from "./forms/sign-up.form";
 

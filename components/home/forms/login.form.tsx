@@ -2,11 +2,12 @@
 
 import { useForm } from "@tanstack/react-form";
 import { loginSchema, LoginSchema } from "../schemes/login.scheme";
-import { Field, FieldError, FieldLabel } from "@/components/ui/field";
-import { Input } from "@/components/ui/input";
+import { Field, FieldError, FieldLabel } from "@/shared/ui/field";
+import { Input } from "@/shared/ui/input";
 import Link from "next/link";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/shared/ui/button";
 import { ArrowRight } from "lucide-react";
+import { signInAction } from "../actions/auth.actions";
 
 export function LoginForm() {
   const form = useForm({
@@ -17,8 +18,8 @@ export function LoginForm() {
     validators: {
       onSubmit: loginSchema,
     },
-    onSubmit: async (values) => {
-      
+    onSubmit: async ({ value }) => {
+      await signInAction(value);
     },
   });
 

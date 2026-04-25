@@ -1,9 +1,9 @@
 "use client";
 
 import { useForm } from "@tanstack/react-form";
-import { Field, FieldError, FieldLabel } from "@/components/ui/field";
-import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
+import { Field, FieldError, FieldLabel } from "@/shared/ui/field";
+import { Input } from "@/shared/ui/input";
+import { Button } from "@/shared/ui/button";
 import { signUpSchema, SignUpSchema } from "../schemes/sign-up.scheme";
 import { ArrowRight } from "lucide-react";
 import { signUpAction } from "../actions/auth.actions";
