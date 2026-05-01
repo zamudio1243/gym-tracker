@@ -1,45 +1,19 @@
-import { Activity, CalendarDays, Dumbbell, Flame } from "lucide-react";
-import { DashboardCard } from "./components/dashboard-card";
-
+import { RecoveryCard } from "./components/recovery-card";
+import { StreakCard } from "./components/streak-card";
+import { VolumeCard } from "./components/volume-card";
+import { WorkoutsCard } from "./components/workouts-card";
 
 export function Dashboard() {
   return (
-    <div className="space-y-6 p-6">
-      <h1 className="text-3xl font-semibold tracking-tight">Dashboard</h1>
-
-      <div className="grid gap-4 sm:grid-cols-2">
-        <DashboardCard
-          title="VOLUME"
-          value="12.4"
-          unit="K"
-          icon={<Dumbbell className="size-5" />}
+    <div className="space-y-6 p-4 sm:p-6">
+      <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+        <VolumeCard
+          kilograms={12400}
           trend={{ value: "+5%", direction: "up" }}
         />
-
-        <DashboardCard
-          title="WORKOUTS"
-          value={4}
-          unit="/5"
-          icon={<CalendarDays className="size-5" />}
-          progress={{ value: 4, max: 5 }}
-        />
-
-        <DashboardCard
-          title="STREAK"
-          value={14}
-          unit="DAYS"
-          icon={<Flame className="size-5" />}
-          subtitle="Personal Best:"
-          detail="21"
-        />
-
-        <DashboardCard
-          title="RECOVERY"
-          value={85}
-          unit="%"
-          icon={<Activity className="size-5" />}
-          subtitle="Optimal"
-        />
+        <WorkoutsCard completed={4} total={5} />
+        <StreakCard days={14} personalBest={21} />
+        <RecoveryCard percentage={85} status="Optimal" />
       </div>
     </div>
   );
