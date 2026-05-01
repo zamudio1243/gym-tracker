@@ -1,5 +1,3 @@
-"use client";
-
 import { Dumbbell, ArrowRight } from "lucide-react";
 import { Button } from "@/shared/ui/button";
 import Link from "next/link";
@@ -77,7 +75,7 @@ export function WelcomeHero() {
               href="#"
               className="transition-colors hover:text-muted-foreground"
             >
-              Politica de priva
+              Politica de privacidad
             </a>
             <span>•</span>
             <a
