@@ -1,4 +1,4 @@
-import { LoginAthlete } from "@/features/home/login-athlete";
+import { LoginAthlete } from "@/components/home/login-athlete";
 
 export default function LoginAthletePage() {
   return <LoginAthlete />;

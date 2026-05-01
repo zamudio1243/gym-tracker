@@ -1,4 +1,4 @@
-import { WelcomeHero } from "@/features/home/welcome-hero"
+import { WelcomeHero } from "@/components/home/welcome-hero"
 
 export default function Home() {
   return <WelcomeHero />
