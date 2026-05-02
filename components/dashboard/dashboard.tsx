@@ -1,5 +1,6 @@
 import { RecoveryCard } from "./components/recovery-card";
 import { StreakCard } from "./components/streak-card";
+import { TranningSection } from "./components/tranning/tranning-section";
 import { VolumeCard } from "./components/volume-card";
 import { WorkoutsCard } from "./components/workouts-card";
 
@@ -15,6 +16,8 @@ export function Dashboard() {
         <StreakCard days={14} personalBest={21} />
         <RecoveryCard percentage={85} status="Optimal" />
       </div>
+
+      <TranningSection />
     </div>
   );
 }
