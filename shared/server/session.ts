@@ -6,3 +6,8 @@ export async function getServerSession() {
     headers: await headers(),
   });
 }
+
+export async function getServerUser() {
+  const session = await getServerSession();
+  return session?.user;
+}
