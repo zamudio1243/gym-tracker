@@ -1,5 +1,6 @@
 import { CalendarCheck2 } from "lucide-react";
 import { DashboardCard } from "./dashboard-card";
+import { m } from "@/paraglide/messages";
 
 type WorkoutsCardProps = {
   completed: number;
@@ -11,7 +12,7 @@ export function WorkoutsCard({ completed, total }: WorkoutsCardProps) {
 
   return (
     <DashboardCard
-      title="WORKOUTS"
+      title={m.dashboard_workouts_title({})}
       icon={<CalendarCheck2 className="size-5" />}
       value={
         <div className="flex items-baseline gap-1.5 text-card-foreground">

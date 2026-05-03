@@ -13,6 +13,7 @@ import {
   DropdownMenu,
 } from "@/shared/ui/dropdown-menu";
 import { CircleUser, LogOut } from "lucide-react";
+import { m } from "@/paraglide/messages";
 
 export function UserHeader({
   user,
@@ -77,7 +78,7 @@ export function UserHeader({
         <DropdownMenuGroup>
           <DropdownMenuItem>
             <CircleUser />
-            Account
+            {m.user_menu_account({})}
           </DropdownMenuItem>
         </DropdownMenuGroup>
         <DropdownMenuSeparator />
@@ -85,7 +86,7 @@ export function UserHeader({
           <DropdownMenuItem asChild>
             <button type="submit" className="w-full">
               <LogOut />
-              Log out
+              {m.user_menu_logout({})}
             </button>
           </DropdownMenuItem>
         </form>

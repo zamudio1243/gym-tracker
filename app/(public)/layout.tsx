@@ -1,4 +1,5 @@
 import { getServerSession } from "@/shared/server/session";
+import { localizePath } from "@/shared/lib/i18n";
 import { redirect } from "next/navigation";
 
 export default async function PublicLayout({
@@ -9,7 +10,7 @@ export default async function PublicLayout({
   const session = await getServerSession();
 
   if (session) {
-    redirect("/dashboard");
+    redirect(localizePath("/dashboard"));
   }
 
   return children;

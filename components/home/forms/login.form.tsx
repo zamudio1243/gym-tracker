@@ -8,6 +8,8 @@ import Link from "next/link";
 import { Button } from "@/shared/ui/button";
 import { ArrowRight } from "lucide-react";
 import { signInAction } from "../actions/auth.actions";
+import { m } from "@/paraglide/messages";
+import { localizeHref } from "@/paraglide/runtime";
 
 export function LoginForm() {
   const form = useForm({
@@ -37,7 +39,7 @@ export function LoginForm() {
             field.state.meta.isTouched && !field.state.meta.isValid;
           return (
             <Field data-invalid={isInvalid}>
-              <FieldLabel htmlFor={field.name}>Email</FieldLabel>
+              <FieldLabel htmlFor={field.name}>{m.form_email_label({})}</FieldLabel>
               <Input
                 id={field.name}
                 name={field.name}
@@ -59,7 +61,7 @@ export function LoginForm() {
             field.state.meta.isTouched && !field.state.meta.isValid;
           return (
             <Field data-invalid={isInvalid}>
-              <FieldLabel htmlFor={field.name}>Password</FieldLabel>
+              <FieldLabel htmlFor={field.name}>{m.form_password_label({})}</FieldLabel>
               <Input
                 id={field.name}
                 name={field.name}
@@ -73,14 +75,14 @@ export function LoginForm() {
               />
               {isInvalid && <FieldError errors={field.state.meta.errors} />}
               <Button variant="link" size="xs" asChild className="right-0">
-                <Link href="/auth/forgot-password">Olvidé mi contraseña</Link>
+                <Link href={localizeHref("/auth/forgot-password")}>{m.form_forgot_password({})}</Link>
               </Button>
             </Field>
           );
         }}
       </form.Field>
       <Button className="bg-primary text-primary-foreground mt-3" type="submit">
-        Log in
+        {m.form_login_submit({})}
         <ArrowRight className="ml-2" />
       </Button>
     </form>

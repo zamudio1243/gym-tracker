@@ -1,5 +1,6 @@
 import { Flame } from "lucide-react";
 import { DashboardCard } from "./dashboard-card";
+import { m } from "@/paraglide/messages";
 
 type StreakCardProps = {
   days: number;
@@ -9,7 +10,7 @@ type StreakCardProps = {
 export function StreakCard({ days, personalBest }: StreakCardProps) {
   return (
     <DashboardCard
-      title="STREAK"
+      title={m.dashboard_streak_title({})}
       icon={<Flame className="size-5 text-primary" />}
       value={
         <div className="flex items-baseline gap-1.5 text-card-foreground">
@@ -17,13 +18,13 @@ export function StreakCard({ days, personalBest }: StreakCardProps) {
             {days}
           </span>
           <span className="text-2xl font-semibold leading-none text-muted-foreground uppercase">
-            DAYS
+            {m.dashboard_days_suffix({})}
           </span>
         </div>
       }
       subtitle={
         <p className="text-2xl leading-tight font-medium tracking-[0.08em] text-muted-foreground sm:text-xl">
-          Personal Best: {personalBest}
+          {m.dashboard_personal_best({ value: personalBest })}
         </p>
       }
       contentClassName="space-y-4"

@@ -2,6 +2,8 @@ import Link from "next/link";
 import { Button } from "@/shared/ui/button";
 import { ArrowLeft, Bolt } from "lucide-react";
 import { SignUpForm } from "../forms/sign-up.form";
+import { m } from "@/paraglide/messages";
+import { localizePath } from "@/shared/lib/i18n";
 
 export function SignUpAthlete() {
   return (
@@ -11,15 +13,15 @@ export function SignUpAthlete() {
           variant="link"
           className="flex items-center justify-center w-10 h-10 rounded-full hover:bg-black/10 dark:hover:bg-white/10 transition-colors"
         >
-          <Link href="/welcome/">
+          <Link href={localizePath("/welcome")}>
             <ArrowLeft className="w-6 h-6 dark:text-white" />
           </Link>
         </Button>
         <div className="flex items-center gap-2">
           <Bolt className="text-primary w-6 h-6" />
-          <span className="text-sm font-bold tracking-widest uppercase dark:text-white opacity-90">
-            Titan Protocol
-          </span>
+            <span className="text-sm font-bold tracking-widest uppercase dark:text-white opacity-90">
+              {m.site_name({})}
+            </span>
         </div>
         <div className="w-10"></div>
       </header>
@@ -29,12 +31,11 @@ export function SignUpAthlete() {
         <div className="mt-8 mb-auto">
           <div className="mb-10 text-left">
             <h1 className="text-4xl font-extrabold leading-tight tracking-tight dark:text-white mb-2">
-              Create Athlete <br />
-              Account.
+              {m.signup_heading_prefix({})} <br />
+              {m.signup_heading_highlight({})}
             </h1>
             <p className="text-slate-500 dark:text-text-secondary text-base font-medium">
-              Join the Titan Protocol ecosystem to track your metrics and
-              dominate your performance.
+              {m.signup_subtitle({})}
             </p>
           </div>
           {/* EL FORMULARIO */}

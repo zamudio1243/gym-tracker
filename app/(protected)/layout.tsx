@@ -1,9 +1,11 @@
 import { getServerSession } from "@/shared/server/session";
 import { redirect } from "next/navigation";
 import { SiteHeader } from "@/components/dashboard/components/header/site-header";
+import { localizePath } from "@/shared/lib/i18n";
+import { m } from "@/paraglide/messages";
 
 export const metadata = {
-  title: "Dashboard",
+  title: m.dashboard_title({}),
 };
 
 export default async function ProtectedLayout({
@@ -14,7 +16,7 @@ export default async function ProtectedLayout({
   const session = await getServerSession();
 
   if (!session) {
-    redirect("/login");
+    redirect(localizePath("/login"));
   }
 
   return (

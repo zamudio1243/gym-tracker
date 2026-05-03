@@ -1,8 +1,10 @@
 import {
   ALL_TRAINING_DENSITY_VARIANTS,
+  getTrainingDensityLabel,
   TranningDensity,
 } from "./tranning-density";
 import { TranningGrid } from "./tranning-grid";
+import { m } from "@/paraglide/messages";
 
 const trainingDensityData = [
   { date: "2026-02-09", intensity: 1 },
@@ -54,14 +56,14 @@ export function TranningSection() {
     <section className="flex min-h-120 flex-col gap-8 px-1 py-2 text-card-foreground">
       <div className="flex items-center justify-between gap-4">
         <h2 className="text-xl font-semibold tracking-[0.24em] text-card-foreground uppercase sm:text-2xl">
-          Training Density
+          {m.dashboard_training_density({})}
         </h2>
         <div className="flex items-center gap-2">
           {ALL_TRAINING_DENSITY_VARIANTS.map((variant) => (
             <TranningDensity
               key={variant}
               variant={variant}
-              title={variant}
+              title={getTrainingDensityLabel(variant)}
               className="size-4 rounded-[0.15rem] border border-border/60 sm:size-5"
             />
           ))}

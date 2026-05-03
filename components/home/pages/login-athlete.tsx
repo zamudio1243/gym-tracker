@@ -2,6 +2,8 @@ import Link from "next/link";
 import { Button } from "@/shared/ui/button";
 import { LoginForm } from "../forms/login.form";
 import { ArrowLeft, Bolt } from "lucide-react";
+import { m } from "@/paraglide/messages";
+import { localizePath } from "@/shared/lib/i18n";
 
 export function LoginAthlete() {
   return (
@@ -11,15 +13,15 @@ export function LoginAthlete() {
           variant="link"
           className="flex items-center justify-center w-10 h-10 rounded-full hover:bg-black/10 dark:hover:bg-white/10 transition-colors"
         >
-          <Link href="/welcome/">
+          <Link href={localizePath("/welcome")}>
             <ArrowLeft className="w-6 h-6 dark:text-white" />
           </Link>
         </Button>
         <div className="flex items-center gap-2">
           <Bolt className="text-primary w-6 h-6" />
-          <span className="text-sm font-bold tracking-widest uppercase dark:text-white opacity-90">
-            Titan Protocol
-          </span>
+            <span className="text-sm font-bold tracking-widest uppercase dark:text-white opacity-90">
+              {m.site_name({})}
+            </span>
         </div>
         <div className="w-10"></div>
       </header>
@@ -29,11 +31,11 @@ export function LoginAthlete() {
         <div className="mt-8 mb-auto">
           <div className="mb-10 text-left">
             <h1 className="text-4xl font-extrabold leading-tight tracking-tight dark:text-white mb-2">
-              Welcome Back, <br />
-              <span className="text-primary">Athlete.</span>
+              {m.login_heading_prefix({})} <br />
+              <span className="text-primary">{m.login_heading_highlight({})}</span>
             </h1>
             <p className="text-slate-500 dark:text-text-secondary text-base font-medium">
-              Sign in to access your daily protocol.
+              {m.login_subtitle({})}
             </p>
           </div>
           {/* EL FORMULARIO */}
@@ -43,12 +45,12 @@ export function LoginAthlete() {
         {/* FOOTER */}
         <div className="mt-8 text-center">
           <p className="text-slate-500 dark:text-text-secondary text-sm">
-            New to Titan?
+            {m.login_new_to_titan({})}
             <Link
               className="font-bold text-primary hover:underline ml-1"
-              href="/sign-up/"
+              href={localizePath("/sign-up")}
             >
-              Create an account
+              {m.login_create_account({})}
             </Link>
           </p>
           <div className="absolute top-0 right-0 -mr-20 -mt-20 w-64 h-64 bg-primary/5 rounded-full blur-3xl pointer-events-none"></div>

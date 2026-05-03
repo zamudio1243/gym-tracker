@@ -1,5 +1,6 @@
 import { Dumbbell, Minus, TrendingDown, TrendingUp } from "lucide-react";
 import { DashboardCard } from "./dashboard-card";
+import { m } from "@/paraglide/messages";
 
 type Trend = "up" | "down" | "neutral";
 
@@ -23,7 +24,7 @@ const trendIcons = {
 export function VolumeCard({ kilograms, trend }: VolumeCardProps) {
   return (
     <DashboardCard
-      title="VOLUME"
+      title={m.dashboard_volume_title({})}
       value={
         <div className="flex items-baseline gap-1.5 text-card-foreground">
           <span className="text-4xl font-semibold leading-none sm:text-5xl">

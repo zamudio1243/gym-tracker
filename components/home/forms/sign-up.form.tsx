@@ -7,6 +7,7 @@ import { Button } from "@/shared/ui/button";
 import { signUpSchema, SignUpSchema } from "../schemes/sign-up.scheme";
 import { ArrowRight } from "lucide-react";
 import { signUpAction } from "../actions/auth.actions";
+import { m } from "@/paraglide/messages";
 
 export function SignUpForm() {
   const form = useForm({
@@ -38,7 +39,7 @@ export function SignUpForm() {
             field.state.meta.isTouched && !field.state.meta.isValid;
           return (
             <Field data-invalid={isInvalid}>
-              <FieldLabel htmlFor={field.name}>Name</FieldLabel>
+              <FieldLabel htmlFor={field.name}>{m.form_name_label({})}</FieldLabel>
               <Input
                 id={field.name}
                 name={field.name}
@@ -60,7 +61,7 @@ export function SignUpForm() {
             field.state.meta.isTouched && !field.state.meta.isValid;
           return (
             <Field data-invalid={isInvalid}>
-              <FieldLabel htmlFor={field.name}>Email</FieldLabel>
+              <FieldLabel htmlFor={field.name}>{m.form_email_label({})}</FieldLabel>
               <Input
                 id={field.name}
                 name={field.name}
@@ -82,7 +83,7 @@ export function SignUpForm() {
             field.state.meta.isTouched && !field.state.meta.isValid;
           return (
             <Field data-invalid={isInvalid}>
-              <FieldLabel htmlFor={field.name}>Password</FieldLabel>
+              <FieldLabel htmlFor={field.name}>{m.form_password_label({})}</FieldLabel>
               <Input
                 id={field.name}
                 name={field.name}
@@ -100,7 +101,7 @@ export function SignUpForm() {
         }}
       </form.Field>
       <Button className="bg-primary text-primary-foreground mt-3" type="submit">
-        Create Hero Account
+        {m.form_signup_submit({})}
         <ArrowRight className="ml-2" />
       </Button>
     </form>

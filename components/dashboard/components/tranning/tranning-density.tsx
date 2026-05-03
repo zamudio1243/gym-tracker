@@ -1,4 +1,5 @@
 import { cn } from "@/shared/lib/utils";
+import { m } from "@/paraglide/messages";
 import {
   Tooltip,
   TooltipContent,
@@ -14,6 +15,19 @@ export const ALL_TRAINING_DENSITY_VARIANTS: TranningDensityVariant[] = [
   "medium",
   "high",
 ] as const;
+
+export function getTrainingDensityLabel(variant: TranningDensityVariant) {
+  switch (variant) {
+    case "empty":
+      return m.dashboard_density_empty({});
+    case "low":
+      return m.dashboard_density_low({});
+    case "medium":
+      return m.dashboard_density_medium({});
+    case "high":
+      return m.dashboard_density_high({});
+  }
+}
 
 type TranningDensityProps = {
   variant: TranningDensityVariant;

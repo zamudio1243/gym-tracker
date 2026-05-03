@@ -1,6 +1,8 @@
 import { Dumbbell, ArrowRight } from "lucide-react";
 import { Button } from "@/shared/ui/button";
 import Link from "next/link";
+import { m } from "@/paraglide/messages";
+import { localizePath } from "@/shared/lib/i18n";
 
 export function WelcomeHero() {
   return (
@@ -26,7 +28,7 @@ export function WelcomeHero() {
           <div className="mb-2 flex items-center justify-center gap-2">
             <Dumbbell className="h-10 w-10 text-primary" strokeWidth={2.5} />
             <p className="text-lg font-bold uppercase tracking-widest text-foreground">
-              Titan Protocol
+              {m.site_name({})}
             </p>
           </div>
         </div>
@@ -36,8 +38,8 @@ export function WelcomeHero() {
           {/* Hero Text */}
           <div className="mb-8 text-center">
             <h1 className="mb-4 text-4xl font-bold leading-tight tracking-tight text-foreground md:text-5xl">
-              Desbloquea tu <br />
-              <span className="text-primary">Verdadero potencial</span>
+              {m.welcome_heading_prefix({})} <br />
+              <span className="text-primary">{m.welcome_heading_highlight({})}</span>
             </h1>
           </div>
 
@@ -50,10 +52,10 @@ export function WelcomeHero() {
               asChild
             >
               <Link
-                href="/sign-up"
+                href={localizePath("/sign-up")}
                 className="flex items-center gap-2 text-lg font-bold tracking-wide"
               >
-                Empieza ahora
+                {m.welcome_cta({})}
                 <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
               </Link>
             </Button>
@@ -61,9 +63,9 @@ export function WelcomeHero() {
             {/* Login Link */}
             <div className="mt-4 flex justify-center text-sm text-muted-foreground">
               <p>
-                Ya estas registrado{" "}
+                {m.welcome_registered({})}{" "}
                 <Button variant="link" asChild className="text-primary">
-                  <Link href="/login">Log in</Link>
+                  <Link href={localizePath("/login")}>{m.welcome_login({})}</Link>
                 </Button>
               </p>
             </div>
@@ -75,14 +77,14 @@ export function WelcomeHero() {
               href="#"
               className="transition-colors hover:text-muted-foreground"
             >
-              Politica de privacidad
+              {m.welcome_privacy({})}
             </a>
             <span>•</span>
             <a
               href="#"
               className="transition-colors hover:text-muted-foreground"
             >
-              Terminos de servicio
+              {m.welcome_terms({})}
             </a>
           </div>
         </div>

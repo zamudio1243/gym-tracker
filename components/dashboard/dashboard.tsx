@@ -3,6 +3,7 @@ import { StreakCard } from "./components/streak-card";
 import { TranningSection } from "./components/tranning/tranning-section";
 import { VolumeCard } from "./components/volume-card";
 import { WorkoutsCard } from "./components/workouts-card";
+import { m } from "@/paraglide/messages";
 
 export function Dashboard() {
   return (
@@ -14,7 +15,7 @@ export function Dashboard() {
         />
         <WorkoutsCard completed={4} total={5} />
         <StreakCard days={14} personalBest={21} />
-        <RecoveryCard percentage={85} status="Optimal" />
+        <RecoveryCard percentage={85} status={m.dashboard_recovery_optimal({})} />
       </div>
 
       <TranningSection />

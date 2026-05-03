@@ -1,4 +1,5 @@
 import { dayjsTz, nowInMexicoCity } from "@/shared/lib/dayjs-tz";
+import { m } from "@/paraglide/messages";
 import {
   TranningDensity,
   type TranningDensityVariant,
@@ -90,17 +91,17 @@ export function TranningGrid({ data }: TrainingGridProps) {
     <div className="inline-flex flex-col gap-10">
       <div className="grid grid-flow-col grid-rows-7 gap-2">
         {cells.map((cell) => (
-          <TranningDensity
-            key={cell.dateKey}
-            title={`intensity ${cell.intensity}`}
-            variant={getIntensityVariant(cell.intensity, maxIntensity)}
-          />
-        ))}
+            <TranningDensity
+              key={cell.dateKey}
+              title={m.dashboard_intensity_tooltip({ value: cell.intensity })}
+              variant={getIntensityVariant(cell.intensity, maxIntensity)}
+            />
+          ))}
       </div>
 
       <div className="flex items-center justify-between text-sm font-medium tracking-[0.2em] text-muted-foreground/80 uppercase sm:text-base">
-        <span>{WEEKS_TO_SHOW} weeks ago</span>
-        <span>Today</span>
+        <span>{m.dashboard_weeks_ago({ value: WEEKS_TO_SHOW })}</span>
+        <span>{m.dashboard_today({})}</span>
       </div>
     </div>
   );

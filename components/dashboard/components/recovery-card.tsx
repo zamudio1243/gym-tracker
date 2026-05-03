@@ -1,5 +1,6 @@
 import { Activity } from "lucide-react";
 import { DashboardCard } from "./dashboard-card";
+import { m } from "@/paraglide/messages";
 
 type RecoveryCardProps = {
   percentage: number;
@@ -9,7 +10,7 @@ type RecoveryCardProps = {
 export function RecoveryCard({ percentage, status }: RecoveryCardProps) {
   return (
     <DashboardCard
-      title="RECOVERY"
+      title={m.dashboard_recovery_title({})}
       icon={<Activity className="size-5" />}
       value={
         <div className="flex items-baseline gap-1.5 text-card-foreground">
