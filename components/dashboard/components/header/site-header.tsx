@@ -8,9 +8,13 @@ export async function SiteHeader() {
   }
 
   return (
-    <header className="border-b">
-      <div className="container flex h-16 items-center ">
-        <h1 className="text-lg font-semibold tracking-tight">Flexshare</h1>
+    <header className="border-b border-border/60 bg-background/95 backdrop-blur">
+      <div className="container flex h-16 items-center justify-between gap-4">
+        <div>
+          <h1 className="text-lg font-semibold tracking-tight text-foreground">
+            Flexshare
+          </h1>
+        </div>
         <UserHeader
           user={{
             name: user.name,

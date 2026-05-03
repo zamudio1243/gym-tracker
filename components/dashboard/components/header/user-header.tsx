@@ -1,5 +1,6 @@
 "use client";
 
+import { signOutAction } from "@/components/home/actions/auth.actions";
 import { AvatarImage, AvatarFallback, Avatar } from "@/shared/ui/avatar";
 import { Button } from "@/shared/ui/button";
 import {
@@ -11,7 +12,7 @@ import {
   DropdownMenuItem,
   DropdownMenu,
 } from "@/shared/ui/dropdown-menu";
-import { CircleUser, EllipsisVertical, LogOut } from "lucide-react";
+import { CircleUser, LogOut } from "lucide-react";
 
 export function UserHeader({
   user,
@@ -22,21 +23,32 @@ export function UserHeader({
     avatar: string;
   };
 }) {
+  const initials = user.name
+    .split(" ")
+    .filter(Boolean)
+    .slice(0, 2)
+    .map((part) => part[0]?.toUpperCase())
+    .join("");
+
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button className="ml-auto flex items-center gap-2 rounded-lg">
-          <Avatar className="h-8 w-8 rounded-lg grayscale">
+        <Button
+          variant="ghost"
+          className="ml-auto h-auto rounded-xl border border-border/60 bg-card/60 px-3 py-2 text-foreground shadow-sm hover:bg-card hover:text-foreground"
+        >
+          <Avatar className="h-9 w-9 rounded-full border border-border/60">
             <AvatarImage src={user.avatar} alt={user.name} />
-            <AvatarFallback className="rounded-lg">CN</AvatarFallback>
+            <AvatarFallback className="rounded-full bg-muted text-xs font-semibold text-foreground">
+              {initials || "US"}
+            </AvatarFallback>
           </Avatar>
-          <div className="grid flex-1 text-left text-sm leading-tight">
-            <span className="truncate font-medium">{user.name}</span>
-            <span className="truncate text-xs text-muted-foreground">
+          <div className="grid text-left text-sm leading-tight">
+            <span className="max-w-32 truncate font-medium">{user.name}</span>
+            <span className="max-w-40 truncate text-xs text-muted-foreground">
               {user.email}
             </span>
           </div>
-          <EllipsisVertical />
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent
@@ -47,9 +59,11 @@ export function UserHeader({
       >
         <DropdownMenuLabel className="p-0 font-normal">
           <div className="flex items-center gap-2 px-1 py-1.5 text-left text-sm">
-            <Avatar className="h-8 w-8 rounded-lg">
+            <Avatar className="h-8 w-8 rounded-full border border-border/60">
               <AvatarImage src={user.avatar} alt={user.name} />
-              <AvatarFallback className="rounded-lg">CN</AvatarFallback>
+              <AvatarFallback className="rounded-full bg-muted text-xs font-semibold text-foreground">
+                {initials || "US"}
+              </AvatarFallback>
             </Avatar>
             <div className="grid flex-1 text-left text-sm leading-tight">
               <span className="truncate font-medium">{user.name}</span>
@@ -67,10 +81,14 @@ export function UserHeader({
           </DropdownMenuItem>
         </DropdownMenuGroup>
         <DropdownMenuSeparator />
-        <DropdownMenuItem>
-          <LogOut />
-          Log out
-        </DropdownMenuItem>
+        <form action={signOutAction}>
+          <DropdownMenuItem asChild>
+            <button type="submit" className="w-full">
+              <LogOut />
+              Log out
+            </button>
+          </DropdownMenuItem>
+        </form>
       </DropdownMenuContent>
     </DropdownMenu>
   );

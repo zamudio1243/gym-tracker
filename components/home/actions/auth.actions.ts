@@ -1,6 +1,7 @@
 "use server";
 
 import { auth } from "@/shared/server/auth";
+import { headers } from "next/headers";
 import { redirect } from "next/navigation";
 import { signUpSchema } from "../schemes/sign-up.scheme";
 import { loginSchema } from "../schemes/login.scheme";
@@ -17,7 +18,9 @@ export async function signInAction(input: unknown) {
 }
 
 export async function signOutAction() {
-  await auth.api.signOut();
+  await auth.api.signOut({
+    headers: await headers(),
+  });
   redirect("/");
 }
 
