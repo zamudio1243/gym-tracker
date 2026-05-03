@@ -1,7 +1,6 @@
 import { getServerUser } from "@/shared/server/session";
 import { UserHeader } from "./user-header";
 import { m } from "@/paraglide/messages";
-import { LocaleSwitcher } from "@/components/shared/locale-switcher";
 
 export async function SiteHeader() {
   const user = await getServerUser();
@@ -18,7 +17,6 @@ export async function SiteHeader() {
           </h1>
         </div>
         <div className="flex items-center gap-3">
-          <LocaleSwitcher />
           <UserHeader
             user={{
               name: user.name,
