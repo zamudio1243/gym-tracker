@@ -1,6 +1,6 @@
 import { getServerSession } from "@/shared/server/session";
 import { redirect } from "next/navigation";
-import { SiteHeader } from "@/components/dashboard/components/header/site-header";
+import { SiteHeader } from "@/components/shared/header/site-header";
 import { localizePath } from "@/shared/lib/i18n";
 import { m } from "@/paraglide/messages";
 
