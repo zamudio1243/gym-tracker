@@ -9,6 +9,7 @@ import {
 } from "@/shared/ui/sidebar";
 import { CirclePlay, Dumbbell, Earth, LayoutGrid } from "lucide-react";
 import * as React from "react";
+import Link from "next/link";
 import { NavMain } from "./nav-main";
 import { NavUser } from "../header/nav-user";
 import { getServerUser } from "@/shared/server/session";
@@ -56,10 +57,10 @@ export async function  DesktopSidebar({
               asChild
               className="data-[slot=sidebar-menu-button]:p-1.5!"
             >
-              <a href="/dashboard">
+              <Link href="/dashboard">
                 <Dumbbell className="size-5!" />
                 <span className="text-base font-semibold">FlexShare</span>
-              </a>
+              </Link>
             </SidebarMenuButton>
           </SidebarMenuItem>
         </SidebarMenu>
