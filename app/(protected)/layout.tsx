@@ -5,6 +5,7 @@ import { DesktopSidebar } from "@/components/shared/sidebar/desktop-sidebar";
 import { localizePath } from "@/shared/lib/i18n";
 import { m } from "@/paraglide/messages";
 import { SidebarInset, SidebarProvider } from "@/shared/ui/sidebar";
+import { MobileBottomNav } from "@/components/shared/sidebar/mobile-navbar";
 
 export const metadata = {
   title: m.dashboard_title({}),
@@ -28,6 +29,7 @@ export default async function ProtectedLayout({
         <SiteHeader />
         <main className="container mt-10">{children}</main>
       </SidebarInset>
+      <MobileBottomNav />
     </SidebarProvider>
   );
 }

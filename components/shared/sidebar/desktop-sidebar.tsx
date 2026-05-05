@@ -7,42 +7,17 @@ import {
   SidebarContent,
   SidebarFooter,
 } from "@/shared/ui/sidebar";
-import { CirclePlay, Dumbbell, Earth, LayoutGrid } from "lucide-react";
+import { Dumbbell } from "lucide-react";
 import * as React from "react";
 import Link from "next/link";
 import { NavMain } from "./nav-main";
 import { NavUser } from "../header/nav-user";
 import { getServerUser } from "@/shared/server/session";
+import { navItems } from "./nav-items";
 
-const data = {
-  navMain: [
-    {
-      title: "Dashboard",
-      url: "/dashboard",
-      icon: <LayoutGrid />,
-    },
-    {
-      title: "Forge",
-      url: "/forge",
-      icon: <Dumbbell />,
-    },
-    {
-      title: "Train",
-      url: "/train",
-      icon: <CirclePlay />,
-    },
-    {
-      title: "Feed",
-      url: "/feed",
-      icon: <Earth />,
-    },
-  ],
-};
-
-export async function  DesktopSidebar({
+export async function DesktopSidebar({
   ...props
 }: React.ComponentProps<typeof Sidebar>) {
-
   const user = await getServerUser();
   if (!user) {
     return null;
@@ -66,10 +41,16 @@ export async function  DesktopSidebar({
         </SidebarMenu>
       </SidebarHeader>
       <SidebarContent>
-        <NavMain items={data.navMain} />
+        <NavMain items={navItems} />
       </SidebarContent>
       <SidebarFooter>
-        <NavUser user={{ name: user.name, email: user.email, avatar: user.image || "" }} />
+        <NavUser
+          user={{
+            name: user.name,
+            email: user.email,
+            avatar: user.image || "",
+          }}
+        />
       </SidebarFooter>
     </Sidebar>
   );
