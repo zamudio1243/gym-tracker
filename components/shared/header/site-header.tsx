@@ -1,5 +1,5 @@
 import { getServerUser } from "@/shared/server/session";
-import { UserHeader } from "./user-header";
+import { NavUser } from "./nav-user";
 import { m } from "@/paraglide/messages";
 
 export async function SiteHeader() {
@@ -17,7 +17,7 @@ export async function SiteHeader() {
           </h1>
         </div>
         <div className="flex items-center gap-3">
-          <UserHeader
+          <NavUser
             user={{
               name: user.name,
               email: user.email,

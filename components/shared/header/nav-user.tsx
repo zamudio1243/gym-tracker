@@ -2,7 +2,6 @@
 
 import { signOutAction } from "@/components/home/actions/auth.actions";
 import { AvatarImage, AvatarFallback, Avatar } from "@/shared/ui/avatar";
-import { Button } from "@/shared/ui/button";
 import {
   DropdownMenuTrigger,
   DropdownMenuContent,
@@ -14,8 +13,9 @@ import {
 } from "@/shared/ui/dropdown-menu";
 import { CircleUser, LogOut } from "lucide-react";
 import { m } from "@/paraglide/messages";
+import { SidebarMenuButton } from "@/shared/ui/sidebar";
 
-export function UserHeader({
+export function NavUser({
   user,
 }: {
   user: {
@@ -34,9 +34,9 @@ export function UserHeader({
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button
-          variant="ghost"
-          className="ml-auto h-auto rounded-xl border border-border/60 bg-card/60 px-3 py-2 text-foreground shadow-sm hover:bg-card hover:text-foreground"
+        <SidebarMenuButton
+          size="lg"
+          className="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground"
         >
           <Avatar className="h-9 w-9 rounded-full border border-border/60">
             <AvatarImage src={user.avatar} alt={user.name} />
@@ -50,7 +50,7 @@ export function UserHeader({
               {user.email}
             </span>
           </div>
-        </Button>
+        </SidebarMenuButton>
       </DropdownMenuTrigger>
       <DropdownMenuContent
         className="w-(--radix-dropdown-menu-trigger-width) min-w-56 rounded-lg"

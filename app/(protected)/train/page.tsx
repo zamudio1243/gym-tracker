@@ -1,5 +1,5 @@
 import { Train } from "@/components/train/train";
 
-export function TrainPage() {
+export default function TrainPage() {
   return <Train />;
 }
