@@ -44,5 +44,10 @@
   "dashboard_density_high": "High",
   "dashboard_intensity_tooltip": "Intensity {value}",
   "dashboard_weeks_ago": "{value} weeks ago",
-  "dashboard_today": "Today"
+  "dashboard_today": "Today",
+  "sidebar_brand": "FlexShare",
+  "nav_dashboard": "Dashboard",
+  "nav_forge": "Forge",
+  "nav_train": "Train",
+  "nav_feed": "Feed"
 }

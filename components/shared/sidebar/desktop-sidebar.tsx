@@ -1,3 +1,4 @@
+import { m } from "@/paraglide/messages";
 import {
   Sidebar,
   SidebarHeader,
@@ -13,7 +14,7 @@ import Link from "next/link";
 import { NavMain } from "./nav-main";
 import { NavUser } from "../header/nav-user";
 import { getServerUser } from "@/shared/server/session";
-import { navItems } from "./nav-items";
+import { getNavItems } from "./nav-items";
 
 export async function DesktopSidebar({
   ...props
@@ -34,14 +35,16 @@ export async function DesktopSidebar({
             >
               <Link href="/dashboard">
                 <Dumbbell className="size-5!" />
-                <span className="text-base font-semibold">FlexShare</span>
+                <span className="text-base font-semibold">
+                  {m.sidebar_brand({})}
+                </span>
               </Link>
             </SidebarMenuButton>
           </SidebarMenuItem>
         </SidebarMenu>
       </SidebarHeader>
       <SidebarContent>
-        <NavMain items={navItems} />
+        <NavMain items={getNavItems()} />
       </SidebarContent>
       <SidebarFooter>
         <NavUser
