@@ -1,5 +1,6 @@
 import { getServerUser } from "@/shared/server/session";
 import { NavUser } from "./nav-user";
+import { NavUserCompact } from "./nav-user-compact";
 import { SidebarTriggerButton } from "./sidebar-trigger-button";
 import { m } from "@/paraglide/messages";
 
@@ -8,6 +9,12 @@ export async function SiteHeader() {
   if (!user) {
     return null;
   }
+
+  const userProps = {
+    name: user.name,
+    email: user.email,
+    avatar: user.image || "",
+  };
 
   return (
     <header className="border-b border-border/60 bg-background/95 backdrop-blur">
@@ -18,14 +25,13 @@ export async function SiteHeader() {
             {m.site_name({})}
           </h1>
         </div>
-        <div className="flex items-center gap-3">
-          <NavUser
-            user={{
-              name: user.name,
-              email: user.email,
-              avatar: user.image || "",
-            }}
-          />
+        {/* Full user button visible on desktop (sidebar already has it, but kept for collapsed state) */}
+        <div className="hidden md:flex items-center gap-3">
+          <NavUser user={userProps} />
+        </div>
+        {/* Compact avatar-only button on mobile — bottom nav handles navigation */}
+        <div className="flex md:hidden items-center">
+          <NavUserCompact user={userProps} />
         </div>
       </div>
     </header>

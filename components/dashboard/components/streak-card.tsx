@@ -12,6 +12,7 @@ export function StreakCard({ days, personalBest }: StreakCardProps) {
     <DashboardCard
       title={m.dashboard_streak_title({})}
       icon={<Flame className="size-5 text-primary" />}
+      context={m.dashboard_all_time({})}
       value={
         <div className="flex items-baseline gap-1.5 text-card-foreground">
           <span className="text-4xl font-semibold leading-none sm:text-5xl">

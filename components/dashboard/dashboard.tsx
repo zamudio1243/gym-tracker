@@ -3,11 +3,14 @@ import { StreakCard } from "./components/streak-card";
 import { TranningSection } from "./components/tranning/tranning-section";
 import { VolumeCard } from "./components/volume-card";
 import { WorkoutsCard } from "./components/workouts-card";
+import { TodayCard } from "./components/today-card";
 import { m } from "@/paraglide/messages";
 
 export function Dashboard() {
   return (
     <div className="space-y-6 p-4 sm:p-6">
+      <TodayCard />
+
       <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
         <VolumeCard
           kilograms={12400}

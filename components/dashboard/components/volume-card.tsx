@@ -36,6 +36,7 @@ export function VolumeCard({ kilograms, trend }: VolumeCardProps) {
         </div>
       }
       icon={<Dumbbell className="size-5" />}
+      context={m.dashboard_this_week({})}
       subtitle={
         <div
           className={`flex items-center gap-1.5 text-sm font-semibold sm:text-base ${trendMap[trend.direction]}`}

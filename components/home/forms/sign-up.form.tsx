@@ -3,6 +3,7 @@
 import { useForm } from "@tanstack/react-form";
 import { Field, FieldError, FieldLabel } from "@/shared/ui/field";
 import { Input } from "@/shared/ui/input";
+import { PasswordInput } from "@/shared/ui/password-input";
 import { Button } from "@/shared/ui/button";
 import { signUpSchema, SignUpSchema } from "../schemes/sign-up.scheme";
 import { ArrowRight } from "lucide-react";
@@ -84,16 +85,14 @@ export function SignUpForm() {
           return (
             <Field data-invalid={isInvalid}>
               <FieldLabel htmlFor={field.name}>{m.form_password_label({})}</FieldLabel>
-              <Input
+              <PasswordInput
                 id={field.name}
                 name={field.name}
-                type="password"
                 value={field.state.value}
                 onBlur={field.handleBlur}
                 onChange={(e) => field.handleChange(e.target.value)}
                 aria-invalid={isInvalid}
-                placeholder=""
-                autoComplete="off"
+                autoComplete="new-password"
               />
               {isInvalid && <FieldError errors={field.state.meta.errors} />}
             </Field>

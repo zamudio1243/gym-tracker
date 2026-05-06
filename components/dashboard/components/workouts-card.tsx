@@ -14,6 +14,7 @@ export function WorkoutsCard({ completed, total }: WorkoutsCardProps) {
     <DashboardCard
       title={m.dashboard_workouts_title({})}
       icon={<CalendarCheck2 className="size-5" />}
+      context={m.dashboard_this_week({})}
       value={
         <div className="flex items-baseline gap-1.5 text-card-foreground">
           <span className="text-4xl font-semibold leading-none sm:text-5xl">

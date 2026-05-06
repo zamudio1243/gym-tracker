@@ -7,6 +7,7 @@ type DashboardCardProps = {
   value: ReactNode;
   icon?: ReactNode;
   subtitle?: ReactNode;
+  context?: string;
   className?: string;
   contentClassName?: string;
 };
@@ -16,6 +17,7 @@ export function DashboardCard({
   value,
   icon,
   subtitle,
+  context,
   className,
   contentClassName,
 }: DashboardCardProps) {
@@ -28,9 +30,16 @@ export function DashboardCard({
        )}
     >
       <div className="flex items-start justify-between gap-4">
-        <p className="text-sm font-semibold tracking-[0.2em] text-muted-foreground uppercase sm:text-base">
-          {title}
-        </p>
+        <div>
+          <p className="text-sm font-semibold tracking-[0.2em] text-muted-foreground uppercase sm:text-base">
+            {title}
+          </p>
+          {context && (
+            <p className="text-[0.65rem] font-medium text-muted-foreground/60 uppercase tracking-widest mt-0.5">
+              {context}
+            </p>
+          )}
+        </div>
         {icon ? <div className="mt-0.5 text-muted-foreground">{icon}</div> : null}
       </div>
 

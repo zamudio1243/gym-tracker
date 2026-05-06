@@ -18,6 +18,9 @@ const WEEKS_TO_SHOW = 12;
 const DAYS_IN_WEEK = 7;
 const TOTAL_CELLS = WEEKS_TO_SHOW * DAYS_IN_WEEK;
 
+// Mon-first weekday labels (short, locale-agnostic for now)
+const WEEKDAY_LABELS = ["L", "M", "X", "J", "V", "S", "D"];
+
 function formatDateKey(value: ReturnType<typeof dayjsTz>) {
   return value.format("YYYY-MM-DD");
 }
@@ -87,16 +90,43 @@ export function TranningGrid({ data }: TrainingGridProps) {
     0,
   );
 
+  // Count training days in the last 7 days (excluding future)
+  const last7DaysCount = cells
+    .slice(-7)
+    .filter((cell) => !cell.date.isAfter(today, "day") && cell.intensity > 0)
+    .length;
+
   return (
-    <div className="inline-flex flex-col gap-10">
-      <div className="grid grid-flow-col grid-rows-7 gap-2">
-        {cells.map((cell) => (
+    <div className="inline-flex flex-col gap-6">
+      {/* Summary insight */}
+      <p className="text-sm text-muted-foreground">
+        {m.dashboard_density_summary({ count: last7DaysCount })}
+      </p>
+
+      {/* Grid with weekday labels */}
+      <div className="flex gap-2">
+        {/* Weekday labels column */}
+        <div className="grid grid-rows-7 gap-2">
+          {WEEKDAY_LABELS.map((label) => (
+            <span
+              key={label}
+              className="flex size-4 items-center justify-center text-[0.6rem] font-medium text-muted-foreground/60 uppercase sm:size-5"
+            >
+              {label}
+            </span>
+          ))}
+        </div>
+
+        {/* Density grid */}
+        <div className="grid grid-flow-col grid-rows-7 gap-2">
+          {cells.map((cell) => (
             <TranningDensity
               key={cell.dateKey}
               title={m.dashboard_intensity_tooltip({ value: cell.intensity })}
               variant={getIntensityVariant(cell.intensity, maxIntensity)}
             />
           ))}
+        </div>
       </div>
 
       <div className="flex items-center justify-between text-sm font-medium tracking-[0.2em] text-muted-foreground/80 uppercase sm:text-base">

@@ -4,6 +4,7 @@ import { useForm } from "@tanstack/react-form";
 import { loginSchema, LoginSchema } from "../schemes/login.scheme";
 import { Field, FieldError, FieldLabel } from "@/shared/ui/field";
 import { Input } from "@/shared/ui/input";
+import { PasswordInput } from "@/shared/ui/password-input";
 import Link from "next/link";
 import { Button } from "@/shared/ui/button";
 import { ArrowRight } from "lucide-react";
@@ -62,16 +63,14 @@ export function LoginForm() {
           return (
             <Field data-invalid={isInvalid}>
               <FieldLabel htmlFor={field.name}>{m.form_password_label({})}</FieldLabel>
-              <Input
+              <PasswordInput
                 id={field.name}
                 name={field.name}
-                type="password"
                 value={field.state.value}
                 onBlur={field.handleBlur}
                 onChange={(e) => field.handleChange(e.target.value)}
                 aria-invalid={isInvalid}
-                placeholder=""
-                autoComplete="off"
+                autoComplete="current-password"
               />
               {isInvalid && <FieldError errors={field.state.meta.errors} />}
               <Button variant="link" size="xs" asChild className="right-0">

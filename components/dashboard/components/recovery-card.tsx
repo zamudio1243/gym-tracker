@@ -12,6 +12,7 @@ export function RecoveryCard({ percentage, status }: RecoveryCardProps) {
     <DashboardCard
       title={m.dashboard_recovery_title({})}
       icon={<Activity className="size-5" />}
+      context={m.dashboard_last_7_days({})}
       value={
         <div className="flex items-baseline gap-1.5 text-card-foreground">
           <span className="text-4xl font-semibold leading-none sm:text-5xl">

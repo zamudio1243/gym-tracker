@@ -52,5 +52,29 @@
   "nav_dashboard": "Dashboard",
   "nav_forge": "Forge",
   "nav_train": "Train",
-  "nav_feed": "Feed"
+  "nav_feed": "Feed",
+
+  "forge_description": "Construye tus rutinas y ejercicios.",
+  "forge_empty_title": "Sin rutinas aún",
+  "forge_empty_description": "Crea tu primera rutina de entrenamiento para empezar.",
+  "forge_create_workout": "Crear rutina",
+  "forge_create_exercise": "Crear ejercicio",
+
+  "train_description": "Registra y sigue tus sesiones de entrenamiento.",
+  "train_empty_title": "Sin sesiones registradas",
+  "train_empty_description": "Inicia una sesión para comenzar a registrar tu progreso.",
+  "train_start_session": "Iniciar sesión",
+  "train_resume_last": "Retomar última sesión",
+
+  "feed_description": "Tu actividad y logros de un vistazo.",
+  "feed_empty_title": "Nada por aquí aún",
+  "feed_empty_description": "Tus logros y progreso aparecerán aquí conforme entrenes.",
+
+  "dashboard_today_heading": "Hoy",
+  "dashboard_today_ready": "¿Listo para entrenar?",
+  "dashboard_today_go": "Iniciar entrenamiento de hoy",
+  "dashboard_this_week": "Esta semana",
+  "dashboard_last_7_days": "Últimos 7 días",
+  "dashboard_all_time": "Total",
+  "dashboard_density_summary": "Entrenaste {count} de los últimos 7 días"
 }
