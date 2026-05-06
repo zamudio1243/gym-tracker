@@ -71,22 +71,7 @@ export function WelcomeHero() {
             </div>
           </div>
 
-          {/* Legal/Footer Links */}
-          <div className="mt-8 flex justify-center gap-4 text-xs text-muted-foreground/70">
-            <a
-              href="#"
-              className="transition-colors hover:text-muted-foreground"
-            >
-              {m.welcome_privacy({})}
-            </a>
-            <span>•</span>
-            <a
-              href="#"
-              className="transition-colors hover:text-muted-foreground"
-            >
-              {m.welcome_terms({})}
-            </a>
-          </div>
+          {/* Legal/Footer Links - add real routes when ready */}
         </div>
       </div>
     </div>
