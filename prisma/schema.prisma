@@ -1,4 +1,3 @@
-
 generator client {
   provider = "prisma-client"
   output   = "../generated/prisma"
@@ -69,4 +68,55 @@ model Verification {
 
   @@index([identifier])
   @@map("verification")
+}
+
+enum ExerciseType {
+  COMPOUND
+  ISOLATED
+}
+
+model Category {
+  id     String @id @default(cuid())
+  slug   String @unique
+  nameEn String
+  nameEs String
+
+  exercises Exercise[]
+}
+
+model Equipment {
+  id     String @id @default(cuid())
+  slug   String @unique
+  nameEn String
+  nameEs String
+
+  exercises Exercise[]
+}
+
+model Muscle {
+  id     String @id @default(cuid())
+  slug   String @unique
+  nameEn String
+  nameEs String
+
+  primaryExercises   Exercise[] @relation("PrimaryMuscles")
+  secondaryExercises Exercise[] @relation("SecondaryMuscles")
+}
+
+model Exercise {
+  id     String       @id @default(cuid())
+  slug   String       @unique
+  nameEn String
+  nameEs String
+  type   ExerciseType
+
+  categoryId String
+  category   Category @relation(fields: [categoryId], references: [id])
+
+  equipments       Equipment[]
+  primaryMuscles   Muscle[]    @relation("PrimaryMuscles")
+  secondaryMuscles Muscle[]    @relation("SecondaryMuscles")
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }

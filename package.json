@@ -1,4 +1,4 @@
- {
+{
   "name": "gym-tracker",
   "version": "0.1.0",
   "private": true,
@@ -11,7 +11,8 @@
     "lint:fix": "bun --bun eslint --fix",
     "prisma:generate": "bun --bun prisma generate",
     "prisma:migrate": "bun --bun prisma migrate dev",
-    "prisma:studio": "bun --bun prisma studio"
+    "prisma:studio": "bun --bun prisma studio",
+    "prisma:seed": "bun --bun prisma generate && bunx --bun prisma db seed"
   },
   "dependencies": {
     "@inlang/paraglide-js": "^2.18.0",
