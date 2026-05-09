@@ -5,8 +5,8 @@ export function ForgeNew() {
   return (
     <div className="space-y-6 p-4 sm:p-6">
       <PageHeader
-        title={m.forge_new_title({})}
-        description={m.forge_new_description({})}
+        title={m.workout_new_title({})}
+        description={m.workout_new_description({})}
       />
     </div>
   );

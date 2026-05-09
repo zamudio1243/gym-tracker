@@ -34,7 +34,7 @@ export function Forge() {
             </p>
           </div>
           <Button variant="outline" size="sm" asChild>
-            <Link href="/forge/new">
+            <Link href="/workout/new" className={cn("flex items-center gap-2")}>
               <Plus className="size-3.5" />
               {m.forge_create_workout({})}
             </Link>

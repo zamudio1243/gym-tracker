@@ -60,9 +60,8 @@
   "forge_empty_description": "Crea tu primera rutina de entrenamiento para empezar.",
   "forge_create_workout": "Crear rutina",
   "forge_create_exercise": "Crear ejercicio",
-  "forge_new_title": "Nueva rutina",
-  "forge_new_description": "Define la estructura de tu nueva rutina de entrenamiento.",
-
+  "workout_new_title": "Nueva rutina",
+  "workout_new_description": "Define la estructura de tu nueva rutina de entrenamiento.",
   "train_description": "Registra y sigue tus sesiones de entrenamiento.",
   "train_empty_title": "Sin sesiones registradas",
   "train_empty_description": "Inicia una sesión para comenzar a registrar tu progreso.",
