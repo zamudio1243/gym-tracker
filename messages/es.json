@@ -3,6 +3,7 @@
   "app_title": "FlexShare - Desbloquea tu verdadero potencial",
   "app_description": "Programas de entrenamiento élite y coaching personalizado para tu máximo rendimiento.",
   "dashboard_title": "Dashboard",
+  "dashboard_description": "¿Listo para darlo todo hoy?",
   "forge_title": "Forge",
   "train_title": "Train",
   "feed_title": "Feed",
@@ -59,6 +60,8 @@
   "forge_empty_description": "Crea tu primera rutina de entrenamiento para empezar.",
   "forge_create_workout": "Crear rutina",
   "forge_create_exercise": "Crear ejercicio",
+  "forge_new_title": "Nueva rutina",
+  "forge_new_description": "Define la estructura de tu nueva rutina de entrenamiento.",
 
   "train_description": "Registra y sigue tus sesiones de entrenamiento.",
   "train_empty_title": "Sin sesiones registradas",

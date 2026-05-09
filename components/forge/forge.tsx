@@ -1,7 +1,9 @@
 import { Dumbbell, Plus } from "lucide-react";
+import Link from "next/link";
 import { PageHeader } from "@/components/shared/page-header";
 import { Button } from "@/shared/ui/button";
 import { m } from "@/paraglide/messages";
+import { cn } from "@/shared/lib/utils";
 
 export function Forge() {
   return (
@@ -10,9 +12,11 @@ export function Forge() {
         title={m.forge_title({})}
         description={m.forge_description({})}
         action={
-          <Button>
-            <Plus className="size-4" />
-            {m.forge_create_workout({})}
+          <Button asChild>
+            <Link href="/forge/new">
+              <Plus className="size-4" />
+              {m.forge_create_workout({})}
+            </Link>
           </Button>
         }
       />
@@ -29,9 +33,11 @@ export function Forge() {
               {m.forge_empty_description({})}
             </p>
           </div>
-          <Button variant="outline" size="sm">
-            <Plus className="size-3.5" />
-            {m.forge_create_workout({})}
+          <Button variant="outline" size="sm" asChild>
+            <Link href="/forge/new">
+              <Plus className="size-3.5" />
+              {m.forge_create_workout({})}
+            </Link>
           </Button>
         </div>
 

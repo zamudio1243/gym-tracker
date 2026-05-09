@@ -22,7 +22,7 @@ export default async function ProtectedLayout({
       <DesktopSidebar />
       <SidebarInset>
         <SiteHeader />
-        <main className="container mt-10 pb-24 md:pb-10">{children}</main>
+        <main className="container pb-24 md:pb-10">{children}</main>
       </SidebarInset>
       <MobileBottomNav />
     </SidebarProvider>
