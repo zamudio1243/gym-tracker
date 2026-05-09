@@ -1,5 +1,5 @@
 import { Earth } from "lucide-react";
-import { PageHeader } from "@/components/shared/page-header";
+import { PageHeader } from "@/components/shared/header/page-header";
 import { m } from "@/paraglide/messages";
 
 export function Feed() {

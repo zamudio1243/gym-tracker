@@ -1,5 +1,5 @@
 import { CirclePlay, RotateCcw } from "lucide-react";
-import { PageHeader } from "@/components/shared/page-header";
+import { PageHeader } from "@/components/shared/header/page-header";
 import { Button } from "@/shared/ui/button";
 import { m } from "@/paraglide/messages";
 
