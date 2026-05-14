@@ -1,6 +1,11 @@
 import prisma from "@/shared/server/prisma";
 
-export async function getMuscles(search?: string) {
+type GetMusclesParams = {
+  search?: string;
+  slugs?: string[];
+};
+
+export async function getMuscles({ search, slugs }: GetMusclesParams) {
   return prisma.muscle.findMany({
     where: {
       OR: search
@@ -9,6 +14,7 @@ export async function getMuscles(search?: string) {
             { nameEn: { contains: search, mode: "insensitive" } },
           ]
         : undefined,
+      slug: slugs ? { in: slugs } : undefined,
     },
     orderBy: {
       nameEs: "asc",

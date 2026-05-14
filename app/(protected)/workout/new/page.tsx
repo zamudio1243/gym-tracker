@@ -9,8 +9,8 @@ export const metadata: Metadata = {
 export default async function WorkoutNewPage({
   searchParams,
 }: {
-  searchParams: Promise<{ muscle?: string }>;
+  searchParams: Promise<{ muscle?: string; slugs?: string }>;
 }) {
-  const { muscle } = await searchParams;
-  return <ForgeNew search={muscle} />;
+  const { muscle, slugs } = await searchParams;
+  return <ForgeNew search={muscle} slugs={slugs} />;
 }
