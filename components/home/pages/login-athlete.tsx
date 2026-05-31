@@ -19,9 +19,9 @@ export function LoginAthlete() {
         </Button>
         <div className="flex items-center gap-2">
           <Bolt className="text-primary w-6 h-6" />
-            <span className="text-sm font-bold tracking-widest uppercase dark:text-white opacity-90">
-              {m.site_name({})}
-            </span>
+          <span className="text-sm font-bold tracking-widest uppercase dark:text-white opacity-90">
+            {m.site_name({})}
+          </span>
         </div>
         <div className="w-10"></div>
       </header>
@@ -32,7 +32,9 @@ export function LoginAthlete() {
           <div className="mb-10 text-left">
             <h1 className="text-4xl font-extrabold leading-tight tracking-tight dark:text-white mb-2">
               {m.login_heading_prefix({})} <br />
-              <span className="text-primary">{m.login_heading_highlight({})}</span>
+              <span className="text-primary">
+                {m.login_heading_highlight({})}
+              </span>
             </h1>
             <p className="text-slate-500 dark:text-text-secondary text-base font-medium">
               {m.login_subtitle({})}
